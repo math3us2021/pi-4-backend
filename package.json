@@ -1,0 +1,15 @@
+{
+  "name": "webfranca",
+  "version": "1.0.0",
+  "description": "Api de aula",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Fabio faria",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/hapi": "^21.3.0",
+    "joi": "^17.8.4"
+  }
+}
