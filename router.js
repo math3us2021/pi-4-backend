@@ -1,4 +1,4 @@
-const {find, create} = require("./controllers/consumer.controller");
+const {find, create, getById} = require("./controllers/consumer.controller");
 const schema = require("./schemas/consumer.schema");
 
 const router = [
@@ -13,6 +13,14 @@ const router = [
         method: "GET",
         path: "/consumers",
         handler: find
+    },
+    {
+        method: "GET",
+        path: "/consumers/{id}",
+        options: {
+            validate: schema.getConsumer,
+            handler: getById
+        }
     },
     {
         method: "POST",

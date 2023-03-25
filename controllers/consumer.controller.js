@@ -18,4 +18,15 @@ const create = (request, h) => {
     return "created";
 }
 
-module.exports = {find, create};
+const getById =  (request, h) => {
+    const id = request.params.id;
+
+    const consumer = data.find(c => c.id == id);
+    
+    if(consumer) {
+        return h.response(consumer).code(200);
+    }
+    return h.response("Not found").code(404);
+}
+
+module.exports = {find, create, getById};
