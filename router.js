@@ -11,12 +11,12 @@ const router = [
     },
     {
         method: "GET",
-        path: "/consumers",
+        path: "/users",
         handler: find
     },
     {
         method: "GET",
-        path: "/consumers/{id}",
+        path: "/users/{id}",
         options: {
             validate: schema.getConsumer,
             handler: getById
@@ -24,7 +24,7 @@ const router = [
     },
     {
         method: "POST",
-        path: "/consumers",
+        path: "/users",
         options: {
             validate: schema.postConsumer,
             handler: create
