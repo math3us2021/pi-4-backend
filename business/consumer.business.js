@@ -1,16 +1,15 @@
 const consumerRepository = require("../repository/consumer.repository");
 
 const create = (consumer) => {
-
-    return consumerRepository.save(consumer);
+  return consumerRepository.save(consumer);
 };
 
 const findAll = () => {
-    return consumerRepository.findAll();
-}
+  return consumerRepository.findAll();
+};
 
 const findByid = (id) => {
-    return consumerRepository.findById(id);
-}
+  return consumerRepository.findById(id);
+};
 
-module.exports = {create, findAll, findByid};
+module.exports = { create, findAll, findByid };
