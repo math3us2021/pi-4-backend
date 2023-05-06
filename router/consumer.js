@@ -1,5 +1,5 @@
-const {find, create, getById} = require("../controllers/consumer.controller");
-const schema = require("../schemas/consumer.schema");
+const {find, create, getById} = require("../api/v1/consumer/consumer-controller");
+const schema = require("../api/v1/consumer/consumer-schema");
 
 const consumerRouter = [
     {
