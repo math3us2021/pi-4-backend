@@ -1,14 +1,15 @@
+const userModel = require('./user.model');
+
 const data = [];
 
 const save = (user) => {
-
-    data.push(user);
-
-    return user;
+const result = userModel.create(user);
+    return result;
 };
 
 const findAll = () => {
-    return data;
+   const result = userModel.findAll({raw: true});
+    return result;
 }
 
 const findById = (id) => {

@@ -9,15 +9,6 @@ const postUser = {
     phone: Joi.string().min(10).max(11).required(),
     password: Joi.string().min(6).max(50).required(),
 
-    address: Joi.object({
-      street: Joi.string().required(),
-      number: Joi.number().integer().required(),
-      complement: Joi.string().required(),
-      neighborhood: Joi.string().required(),
-      city: Joi.string().required(),
-    }).required(),
-    state: Joi.string().required(),
-    zipcode: Joi.string().min(8).max(8).required(),
   }).required(),
 };
 
