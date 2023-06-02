@@ -1,6 +1,6 @@
-const petRepository = require("./pet.repository");
+const petRepository = require("./pet-repository");
 
-const create = (pet) => {
+const create = async (pet) => {
 
     return petRepository.save(pet);
 };

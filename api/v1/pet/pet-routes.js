@@ -1,26 +1,26 @@
-const {find,create,getById} = require("./controllers/pet.controller");
-const schema = require("./api/v1/pet/pet.schema");
+const {findAll,create,getById} = require("./pet-controller");
+const schema = require("./pet-schema");
 
 const plugin = {
-    name: "user-v1-routes",
+    name: "pet-v1-routes",
     version: "1.0.0",
     register: async (server) => {
         server.route([
             {
                 method: "GET",
-                path: "/",
-                handler: find
+                path: "/pets",
+                handler: findAll
             },
             {
                 method: "GET",
-                path: "/users/{id}",
+                path: "/pets/{id}",
                 options: {
                     validate: schema.getById,
                     handler: getById
                 }
             },{
                 method: "POST",
-                path: "/users",
+                path: "/pets",
                 options: {
                     validate: schema.create,
                     handler: create,

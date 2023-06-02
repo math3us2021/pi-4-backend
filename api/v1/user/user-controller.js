@@ -1,18 +1,19 @@
-const petBusiness = require("../business/pet.business");
+const userBusiness = require("./user-business");
 
 const create = async (request, h) => {
   try {
     const payload = request.payload;
-    const pet = {
+    const user = {
+      id: payload.id,
       name: payload.name,
-      type: payload.type,
-      breed: payload.breed,
-      gender: payload.gender,
-      birthdate: payload.birthdate,
-      weigth: payload.weigth,
+      cpf: payload.cpf,
+      email: payload.email,
+      phone: payload.phone,
+      password: payload.password,
+      petId: payload.petId,
       
     };
-    const result = toPayload(await petBusiness.create(pet));
+    const result = toPayload(await userBusiness.create(user));
     return h.response(result).code(201);
   } catch (error) {
     console.log(error);
@@ -22,7 +23,7 @@ const create = async (request, h) => {
 
 const find = async  (request, h) => {
   try{
-    const result = await petBusiness.findAll();
+    const result = await userBusiness.findAll();
     console.log(Array.isArray(result));
     return h.response(result).code(200);
     }catch(error){
@@ -34,16 +35,16 @@ const find = async  (request, h) => {
 const getById = (request, h) => {
   const id = request.params.id;
 
-  const pet = petBusiness.findByid(id);
+  const user = userBusiness.findByid(id);
 
-  if (pet) {
-    return h.response(pet).code(200);
+  if (user) {
+    return h.response(user).code(200);
   }
   return h.response("Not found").code(404);
 };
-const deletepet = (request, h) => {
+const deleteUser = (request, h) => {
   const id = request.params.id;
-  const deleted = petBusiness.deletepet(id);
+  const deleted = userBusiness.deleteUser(id);
 
   if (deleted) {
     return h.response("Deleted").code(200);
@@ -53,46 +54,46 @@ const deletepet = (request, h) => {
 
 const update = (request, h) => {
   const id = request.params.id;
-  const pet = request.payload;
+  const user = request.payload;
 
-  const updated = petBusiness.update(id, pet);
+  const updated = userBusiness.update(id, user);
 
   if (updated) {
     return h.response("Updated").code(200);
   }
   return h.response("Not found").code(404);
 };
-const toPayload = (petModel) => {
+const toPayload = (userModel) => {
 
-    if (Array.isArray(petModel)) {
+    if (Array.isArray(userModel)) {
         const payload = [];
-        petModel.forEach(c => {
+        userModel.forEach(c => {
             console.log(c);
             payload.push({
                 id: c.id,
                 name: c.name,
-                type: c.type,
-                breed: c.breed,
-                gender:c.gender,
-                birthdate: c.birthdate,
-                weigth: c.weigth,
+                cpf: c.cpf,
+                email: c.email,
+                phone: c.phone,
+                password: c.password,
+                petId:c.petId,
                 
             });
         });
         return payload;
     } else {
         const payload = {
-            id: petModel.id,
-            name: petModel.name,
-            type: petModel.type,
-            breed: petModel.breed,
-            gender:petModel.gender,
-            birthdate: petModel.birthdate,
-            weigth: petModel.weigth,
+            id: userModel.id,
+            name: userModel.name,
+            cpf: userModel.cpf,
+            email: userModel.email,
+            phone: userModel.phone,
+            password: userModel.password,
+            petId:userModel.petId,
            
         }
         return payload;
     }
 }
 
-module.exports = { find, create, getById, deletepet, update };
+module.exports = { find, create, getById, deleteUser, update };

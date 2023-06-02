@@ -1,6 +1,6 @@
-const userRepository = require("./user.repository");
+const userRepository = require("./user-repository");
 
-const create = (user) => {
+const create = async (user) => {
 
     return userRepository.save(user);
 };

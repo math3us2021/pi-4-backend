@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const db = require('../../../config/db');
 
-const User = db.sequelize.define('user', {
+const User = db.define('user', {
     id: {
         type: Sequelize.STRING(36),
         autoIncrement: true,
@@ -11,27 +11,27 @@ const User = db.sequelize.define('user', {
     name: {
         type: Sequelize.STRING,
         allowNull: false,
-        field: 'nome'
+        
     },
     cpf:{
         type: Sequelize.STRING,
         allowNull: false,
-        field: 'cpf'
+        
     },
     phone:{
         type: Sequelize.STRING,
         allowNull: false,
-        field: 'telefone'
+        
     },
     email: {
         type: Sequelize.STRING,
         allowNull: false,
-        field: 'email'
+        
     },
     password: {
         type: Sequelize.STRING,
         allowNull: false,
-        field: 'senha'
+       
     },
     petId:{
         type: Sequelize.INTEGER,
@@ -41,20 +41,12 @@ const User = db.sequelize.define('user', {
             key: 'id'
         }
 
-    },
-    createAt:{
-        type: Sequelize.DATE,
-        allowNull: false,
-    },
-    updateAt:{
-        type: Sequelize.DATE,
-        allowNull: false,
     }
     
 
 }, {
     timestamps: false,
-    tableName: 'Tutor'
+    tableName: 'user',
 });
 
-module.exports = user;
+module.exports = User;

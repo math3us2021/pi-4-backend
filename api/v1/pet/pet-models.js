@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const db = require('../../../config/db');
 
-const Pet = db.sequelize.define('pet', {
+const pet = db.define('pet', {
     id: {
         type: Sequelize.STRING(36),
         autoIncrement: true,
@@ -11,7 +11,6 @@ const Pet = db.sequelize.define('pet', {
     name: {
         type: Sequelize.STRING,
         allowNull: false,
-        field: 'nome'
     },
     type:{
         type: Sequelize.STRING,
@@ -26,26 +25,16 @@ const Pet = db.sequelize.define('pet', {
         allowNull: false,
     },
     birthDate:{
-        type: Sequelize.DATE,
+        type: Sequelize.STRING,
         allowNull: false,
     },
     weigth:{
         type: Sequelize.FLOAT,
         allowNull: false,
     },
-    createAt:{
-        type: Sequelize.DATE,
-        allowNull: false,
-    },
-    updateAt:{
-        type: Sequelize.DATE,
-        allowNull: false,
-    }
-    
-
 }, {
     timestamps: false,
-    tableName: 'pet'
+    tableName: 'Pet',
 });
 
-module.exports = Pet;
+module.exports = pet;

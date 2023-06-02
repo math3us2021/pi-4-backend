@@ -1,14 +1,14 @@
-const {find,create,getById} = require("./controllers/user.controller");
-const schema = require("./api/v1/user/user.schema");
+const {find,create,getById} = require("./user-controller");
+const schema = require("./user-schema");
 
 const plugin = {
     name: "user-v1-routes",
     version: "1.0.0",
-    register: async (server) => {
+    register: (server) => {
         server.route([
             {
                 method: "GET",
-                path: "/",
+                path: "/user",
                 handler: find
             },
             {

@@ -37,17 +37,7 @@ module.exports = {
             model: 'pet',
             key: 'id',
           },
-        },
-        createAt: {
-          type: Sequelize.DATE,
-          allowNull: false,
-          defaultValue: new Date(),
-        },
-        updateAt: {
-          type: Sequelize.DATE,
-          allowNull: false,
-          defaultValue: new Date(),
-        },
+        }
       });
 
     return User;

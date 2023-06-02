@@ -1,13 +1,12 @@
-const Sequelize = require('sequelize');
+const { Sequelize } = require('sequelize');
 
 const sequelizeConfig = {
-    logging: console.log,
-    dialect: 'mysql2',
-    port: 3306, //mysql 3306
+    logging: console.log,  /// mostra o que esta acontecendo no banco de dados
+    dialect: 'mysql',
+    port: 3306,
     host: 'localhost',
-    pool: 2
-};
+    pool: 2,  /// numero de conexoes simultaneas
+}
+const sequelize = new Sequelize('pet', 'root', '210396' , sequelizeConfig); 
 
-const sequelize = new Sequelize('pet', 'mysql2', '210396', sequelizeConfig);
-
-module.exports = {sequelize};
+module.exports = sequelize;

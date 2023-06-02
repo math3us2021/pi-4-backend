@@ -1,14 +1,14 @@
-const petModel = require('./pet.model');
+const userModel = require('./user-models');
 
 const data = [];
 
-const save = (pet) => {
-const result = petModel.create(pet);
+const save = (user) => {
+const result = userModel.create(user);
     return result;
 };
 
 const findAll = () => {
-   const result = petModel.findAll({raw: true});
+   const result = userModel.findAll({raw: true});
     return result;
 }
 
@@ -17,16 +17,16 @@ const findById = (id) => {
     return data.find(c => c.id == id);
 }
 
-const update = (id, pet) => {
+const update = (id, user) => {
     const index = data.findIndex(c => c.id == id);
 
     if(index >= 0) {
-        data[index] = pet;
-        return pet;
+        data[index] = user;
+        return user;
     }
     return null;
 }
-const deletepet = (id) => {
+const deleteUser = (id) => {
     const index = data.findIndex(c => c.id == id);
 
     if(index >= 0) {
@@ -37,4 +37,4 @@ const deletepet = (id) => {
 }
 
 
-module.exports = {save, findAll, findById, update, deletepet};
+module.exports = {save, findAll, findById, update, deleteUser};

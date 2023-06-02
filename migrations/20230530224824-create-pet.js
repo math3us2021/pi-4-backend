@@ -27,7 +27,7 @@ module.exports = {
           allowNull: false,
         },
         birthDate: {
-          type: Sequelize.DATE,
+          type: Sequelize.STRING(150),
           allowNull: false,
         },
         weigth: {
@@ -35,16 +35,7 @@ module.exports = {
           allowNull: false,
         },
 
-        createAt: {
-          type: Sequelize.DATE,
-          allowNull: false,
-          defaultValue: new Date(),
-        },
-        updateAt: {
-          type: Sequelize.DATE,
-          allowNull: false,
-          defaultValue: new Date(),
-        },
+       
       });
 
     return Pet;
