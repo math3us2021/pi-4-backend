@@ -1,6 +1,6 @@
 # Aula Backend
 
-API para aplicação de conceiros de design de api e implementação backend.
+API para aplicação de conceitos de design de api e implementação backend.
 
 ## Para executar o projeto
 ```
