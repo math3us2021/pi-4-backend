@@ -1,4 +1,7 @@
 const petBusiness = require("./pet-business");
+const enumGenderPet = require("./enum-pet")
+const enumTypePet= require('./enum-pet')
+
 
 const create = async (request, h) => {
   try {
@@ -6,9 +9,9 @@ const create = async (request, h) => {
     const pet = {
       id: payload.id,
       name: payload.name,
-      type: payload.type,
+      type: payload.enumTypePet,
       breed: payload.breed,
-      gender: payload.gender,
+      gender: payload.enumGenderPet,
       birthDate: payload.birthDate,
       weigth: payload.weigth,
       

@@ -28,7 +28,7 @@ const petFeeder = db.define('pet-feeder', {
    
 }, {
     timestamps: false,
-    tableName: 'PetFeeder',
+    tableName: 'pet_feeder',
 });
 
 module.exports = petFeeder;

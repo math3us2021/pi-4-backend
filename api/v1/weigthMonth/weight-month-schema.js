@@ -7,6 +7,7 @@ const postWeight = {
     width: Joi.string().required(),
     height: Joi.string().required(),
     date: Joi.string().required(),
+    age_per_month: Joi.string().required(),
     WeightId: Joi.string().min(1).max(36).required(),
 
   }).required(),

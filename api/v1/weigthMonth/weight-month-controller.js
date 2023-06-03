@@ -9,6 +9,7 @@ const create = async (request, h) => {
       width: payload.width,
       height: payload.height,
       date: payload.date,
+      age_per_month: payload.age_per_month,
       petId: payload.petId,
       
     };
@@ -77,6 +78,7 @@ const toPayload = (weightMonthModel) => {
                 width: c.width,
                 height: c.height,
                 date: c.date,
+                age_per_month: c.age_per_month,
                 petId: c.petId,
                 
             });
@@ -89,6 +91,7 @@ const toPayload = (weightMonthModel) => {
             width: weightMonthModel.width,
             height: weightMonthModel.height,
             date: weightMonthModel.date,
+            age_per_month: weightMonthModel.age_per_month,
             petId: weightMonthModel.petId,
            
         }

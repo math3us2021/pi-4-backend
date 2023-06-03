@@ -1,16 +1,23 @@
 {
   "development": {
-    "username": "root",
-    "password": "210396",
-    "database": "pet",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "username": "petadmin",
+    "password": "comilao123@",
+    "database": "petcomilao",
+    "host": "petcomilao.mysql.database.azure.com",
+    "dialect": "mysql",
+    "ssl": true,
+    "dialectOptions" : {
+      "ssl"  : {
+        "require":true
+      }
+    }
+    
   },
   "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
+    "username": "petadmin",
+    "password": "comilao123@",
+    "database": "petcomilao",
+    "host": "petcomilao.mysql.database.azure.com",
     "dialect": "mysql"
   },
   "production": {

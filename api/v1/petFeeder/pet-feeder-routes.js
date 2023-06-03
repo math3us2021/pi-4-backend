@@ -2,7 +2,7 @@ const {findAll,create,getById} = require("./pet-feeder-controller");
 const schema = require("./pet-feeder-schema");
 
 const plugin = {
-    name: "pet-v1-routes",
+    name: "pet-feeder-v1-routes",
     version: "1.0.0",
     register: async (server) => {
         server.route([

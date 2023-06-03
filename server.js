@@ -1,9 +1,9 @@
 const Hapi = require("@hapi/hapi");
 const routes = require('./config/routes');
 const sequelize = require('./config/db');
-
+// const env = 
 const server = Hapi.server({
-    port: 8000,
+    port: process.env.PORT || 8000,
     host: "localhost"
 });
 

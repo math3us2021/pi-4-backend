@@ -24,6 +24,11 @@ const WeightMonth = db.define('weight_month', {
         type: Sequelize.STRING,
         allowNull: false,
     },
+    age_per_month:{
+        type: Sequelize.STRING,
+        allowNull: false,
+
+    },
     petId:{
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -35,7 +40,7 @@ const WeightMonth = db.define('weight_month', {
     }
 }, {
     timestamps: false,
-    tableName: 'WeightMonth',
+    tableName: 'weight_month',
 });
 
 module.exports = WeightMonth;

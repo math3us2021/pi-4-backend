@@ -4,8 +4,10 @@
   "description": "Projeto interdisciplinar 4",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "start-dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "migrate": "npx sequelize db:migrate"
   },
   "author": "Izamara,Fernanda,Matheus",
   "license": "ISC",
