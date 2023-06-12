@@ -1,40 +1,37 @@
 const Joi = require("joi");
 
-const postWeight = {
+const postFood= {
   payload: Joi.object({
     id: Joi.number().integer().required(),
-    weight: Joi.string().required(),
-    width: Joi.string().required(),
-    height: Joi.string().required(),
-    date: Joi.string().required(),
-    age_per_month: Joi.string().required(),
     petId: Joi.string().min(1).max(36).required(),
     petFeederId: Joi.string().min(1).max(36).required(),
-
+    dateAliment: Joi.string().min(1).max(36).required(),
+    quantity: Joi.string().min(1).max(36).required(),
+    success: Joi.boolean().required(),
   }).required(),
 };
 
-const getWeight = {
+const getFood = {
   params: Joi.object({
     id: Joi.number().integer().required(),
   }),
 };
 
-const putWeight = {
+const putFood = {
     params: Joi.object({
         id: Joi.number().integer().required(),
     }),
 }
-const deleteWeight = {
+const deleteFood = {
     params: Joi.object({
         id: Joi.number().integer().required(),
     }),
 }
-const getAllWeight = {
+const getAllFood = {
     query: Joi.object({
         page: Joi.number().integer().required(),
         limit: Joi.number().integer().required(),
     }),
 }
 
-module.exports = { postWeight: postWeight, getWeight: getWeight, putWeight: putWeight, deleteWeight: deleteWeight, getAllWeight: getAllWeight };
+module.exports = { postFood: postFood, getFood: getFood, putFood: putFood, deleteFood: deleteFood, getAllFood: getAllFood };

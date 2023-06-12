@@ -11,6 +11,7 @@ const create = async (request, h) => {
       date: payload.date,
       age_per_month: payload.age_per_month,
       petId: payload.petId,
+      petFeederId: payload.petFeederId,
       
     };
     const result = toPayload(await weightMonthBusiness.create(weightMonth));
@@ -34,6 +35,7 @@ const findAll = async (request, h) => {
     console.log(error);
   }
 };
+
 
 const getById = (request, h) => {
   const id = request.params.id;
@@ -80,6 +82,7 @@ const toPayload = (weightMonthModel) => {
                 date: c.date,
                 age_per_month: c.age_per_month,
                 petId: c.petId,
+                petFeederId: c.petFeederId,
                 
             });
         });
@@ -93,6 +96,7 @@ const toPayload = (weightMonthModel) => {
             date: weightMonthModel.date,
             age_per_month: weightMonthModel.age_per_month,
             petId: weightMonthModel.petId,
+            petFeederId: weightMonthModel.petFeederId,
            
         }
         return payload;

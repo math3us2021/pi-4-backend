@@ -38,4 +38,7 @@ const deleteWeightMonth = (id) => {
 }
 
 
+
+
+
 module.exports = {save, findAll, findById, update, deleteWeightMonth};

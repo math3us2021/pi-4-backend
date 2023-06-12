@@ -29,11 +29,24 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
+      quantityMonth: {
+        type: Sequelize.FLOAT,
+        allowNull: false,
+      },
+      
       petId: {
         allowNull: false,
         type: Sequelize.STRING(36),
         references: {
           model: "pet",
+          key: "id",
+        },
+      },
+      petFeederId: {
+        allowNull: false,
+        type: Sequelize.STRING(36),
+        references: {
+          model: "pet_feeder",
           key: "id",
         },
       },

@@ -13,19 +13,33 @@ const plugin = {
             },
             {
                 method: "GET",
-                path: "/weigth_month/{id}",
+                path: "/weight_month/{id}",
                 options: {
                     validate: schema.getById,
                     handler: getById
                 }
             },{
                 method: "POST",
-                path: "/weigth_month",
+                path: "/weight_month",
                 options: {
                     validate: schema.create,
                     handler: create,
                 }
 
+            },{
+                method: "PUT",
+                path: "/weight_month/{id}",
+                options: {
+                    validate: schema.update,
+                    handler: update,
+                } 
+            },{
+                method: "DELETE",
+                path: "/weight_month/{id}",
+                options: {
+                    validate: schema.delete,
+                    handler: deleteweightMonth,
+                }
             }
         ])
     }

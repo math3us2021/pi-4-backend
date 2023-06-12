@@ -9,7 +9,9 @@ module.exports = {
         height: generateRandomHeight(),
         date: generateRandomDate(),
         age_per_month: generateRandomAgePerMonth(),
+        quantityMonth: generateRandomQuantityMonth(),
         petId: generateRandomPetId(),
+        petFeederId: generateRandomPetFeederId(),
       };
       weight_Month.push(weightMonth);
     }
@@ -51,4 +53,16 @@ function generateRandomPetId() {
     petIds.push(i.toString());
   }
   return petIds[Math.floor(Math.random() * petIds.length)];
+}
+
+function generateRandomPetFeederId() {
+  const petFeederIds = [];
+  for (let i = 1; i <= 150; i++) {
+    petFeederIds.push(i.toString());
+  }
+  return petFeederIds[Math.floor(Math.random() * petFeederIds.length)];
+}
+
+function generateRandomQuantityMonth() {
+  return (Math.random() * (10 - 0) + 0).toFixed(2);
 }

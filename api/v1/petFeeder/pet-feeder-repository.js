@@ -35,6 +35,8 @@ const deletepetFeeder = (id) => {
     }
     return false;
 }
+//somar a quantidade de comida
+
 
 
 module.exports = {save, findAll, findById, update, deletepetFeeder};

@@ -1,10 +1,10 @@
 const Hapi = require("@hapi/hapi");
 const routes = require('./config/routes');
 const sequelize = require('./config/db');
-// const env = 
+
 const server = Hapi.server({
-    port: process.env.PORT || 8000,
-    host: "localhost"
+    port:  8080,
+    host: "0.0.0.0"
 });
 
 const plugins = [

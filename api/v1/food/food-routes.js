@@ -1,19 +1,19 @@
-const { findAll, create, getById } = require("./pet-feeder-controller");
-const schema = require("./pet-feeder-schema");
+const { findAll, create, getById } = require("./food-controller");
+const schema = require("./food-schema");
 
 const plugin = {
-  name: "pet-feeder-v1-routes",
+  name: "food-v1-routes",
   version: "1.0.0",
   register: async (server) => {
     server.route([
       {
         method: "GET",
-        path: "/pet_feeder",
+        path: "/food",
         handler: findAll,
       },
       {
         method: "GET",
-        path: "/pet_feeder/{id}",
+        path: "/food/{id}",
         options: {
           validate: schema.getById,
           handler: getById,
@@ -21,7 +21,7 @@ const plugin = {
       },
       {
         method: "POST",
-        path: "/pet_feeder",
+        path: "/food",
         options: {
           validate: schema.create,
           handler: create,
@@ -29,7 +29,7 @@ const plugin = {
       },
       {
         method: "PUT",
-        path: "/pet_feeder/{id}",
+        path: "/food/{id}",
         options: {
           validate: schema.update,
           handler: update,
@@ -37,10 +37,10 @@ const plugin = {
       },
       {
         method: "DELETE",
-        path: "/pet_feeder/{id}",
+        path: "/food/{id}",
         options: {
           validate: schema.delete,
-          handler: deletepetFeeder,
+          handler: deletefood,
         },
       },
     ]);
