@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 const { findAll, create, getById, update, deletepet  } = require("./pet-controller");
+=======
+const { findAll, create, getById,update,deletepet } = require("./pet-controller");
+>>>>>>> 022fc3e1748a5be3a129fd66fdf0e4ec85124d4f
 const schema = require("./pet-schema");
 
 const plugin = {

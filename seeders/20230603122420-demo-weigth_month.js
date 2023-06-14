@@ -35,12 +35,20 @@ function generateRandomHeight() {
 }
 
 function generateRandomDate() {
-  const start = new Date(2021, 0, 1);
-  const end = new Date(2023, 6, 31);
+  //gerar aleatoriamente datas com o formato yyyy-mm-dd
+  const start = new Date(2022, 0, 1);
+  const end = new Date(2023, 0, 6);
   const randomDate = new Date(
     start.getTime() + Math.random() * (end.getTime() - start.getTime())
   );
-  return randomDate.toLocaleDateString();
+  const date =
+    randomDate.getFullYear() +
+    "-" +
+    (randomDate.getMonth() + 1) +
+    "-" +
+    randomDate.getDate();
+  return date;
+
 }
 
 function generateRandomAgePerMonth() {

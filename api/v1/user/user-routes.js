@@ -1,4 +1,4 @@
-const {find,create,getById} = require("./user-controller");
+const {find,create,getById,deleteUser,update} = require("./user-controller");
 const schema = require("./user-schema");
 
 const plugin = {
@@ -26,6 +26,20 @@ const plugin = {
                     handler: create,
                 }
 
+            },{
+                method: "PUT",
+                path: "/users/{id}",
+                options: {
+                    validate: schema.update,
+                    handler: update,
+                }
+            },{
+                method: "DELETE",
+                path: "/users/{id}",
+                options: {
+                    validate: schema.delete,
+                    handler: deleteUser,
+                }
             }
         ])
     }

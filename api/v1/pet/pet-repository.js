@@ -16,25 +16,45 @@ const findAll = () => {
 const findById = (id) => {
     const result = PetModel.findByPk(id);
     return result;
+<<<<<<< HEAD
+=======
+   
+>>>>>>> 022fc3e1748a5be3a129fd66fdf0e4ec85124d4f
 }
 
-const update = (id, pet) => {
-    const index = data.findIndex(c => c.id == id);
-
-    if(index >= 0) {
-        data[index] = pet;
-        return pet;
-    }
-    return null;
+const update = async (id, pet) => {
+    try {
+        // Encontre o registro que deseja atualizar
+        const record = await PetModel.findByPk(id);
+    
+        if (!record) {
+          throw new Error('Registro não encontrado');
+        }
+    
+        // Atualize os campos necessários com os novos dados
+        await record.update(pet);
+    
+        console.log('Registro atualizado com sucesso!');
+      } catch (error) {
+        console.error('Erro ao atualizar registro:', error);
+      }
 }
-const deletepet = (id) => {
-    const index = data.findIndex(c => c.id == id);
-
-    if(index >= 0) {
-        data.splice(index, 1);
-        return true;
-    }
-    return false;
+const deletepet = async (id) => {
+    try {
+        // Encontre o registro que deseja excluir
+        const record = await PetModel.findByPk(id);
+    
+        if (!record) {
+          throw new Error('Registro não encontrado');
+        }
+    
+        // Exclua o registro
+        await record.destroy();
+    
+        console.log('Registro excluído com sucesso!');
+      } catch (error) {
+        console.error('Erro ao excluir registro:', error);
+      }
 }
 
 

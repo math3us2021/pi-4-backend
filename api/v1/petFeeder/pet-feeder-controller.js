@@ -28,17 +28,18 @@ const findAll = async (request, h) => {
   }
 };
 
-const getById = (request, h) => {
+const getById = async(request, h) => {
   const id = request.params.id;
   console.log("🚀 ~ file: pet-feeder-controller.js:33 ~ getById ~ id:", id)
 
-  const petFeeder = petFeederBusiness.findByid(id);
+  const petFeeder = await petFeederBusiness.findByid(id);
 
   if (petFeeder) {
     return h.response(petFeeder).code(200);
   }
   return h.response("Not found").code(404);
 };
+
 const deletepetFeeder = (request, h) => {
   const id = request.params.id;
   const deleted = petFeederBusiness.deletepetFeeder(id);

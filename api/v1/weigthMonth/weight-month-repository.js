@@ -14,6 +14,7 @@ const findAll = () => {
     return result;
 }
 
+<<<<<<< HEAD
 const findById = ( dateStart, dateEnd, petId) => {
     const start = new Date(dateStart);
     const end = new Date(dateEnd);
@@ -32,26 +33,46 @@ const findById = ( dateStart, dateEnd, petId) => {
             ]
     } 
     );
+=======
+const findById = (id) => {
+    const result = WeightMonthModel.findByPk(id);
+>>>>>>> 022fc3e1748a5be3a129fd66fdf0e4ec85124d4f
     return result;
 }
 
-const update = (id, weightMonth) => {
-    const index = data.findIndex(c => c.id == id);
-
-    if(index >= 0) {
-        data[index] = weightMonth;
-        return weightMonth;
+const update = async (id, newData) => {
+    try {
+      // Encontre o registro que deseja atualizar
+      const record = await WeightMonthModel.findByPk(id);
+  
+      if (!record) {
+        throw new Error('Registro não encontrado');
+      }
+  
+      // Atualize os campos necessários com os novos dados
+      await record.update(newData);
+  
+      console.log('Registro atualizado com sucesso!');
+    } catch (error) {
+      console.error('Erro ao atualizar registro:', error);
     }
-    return null;
-}
-const deleteWeightMonth = (id) => {
-    const index = data.findIndex(c => c.id == id);
+  };
+const deleteWeightMonth = async (id) => {
+  try {
+    // Encontre o registro que deseja excluir
+    const record = await WeightMonthModel.findByPk(id);
 
-    if(index >= 0) {
-        data.splice(index, 1);
-        return true;
+    if (!record) {
+      throw new Error('Registro não encontrado');
     }
-    return false;
+
+    // Exclua o registro
+    await record.destroy();
+
+    console.log('Registro excluído com sucesso!');
+  } catch (error) {
+    console.error('Erro ao excluir registro:', error);
+  }
 }
 
 

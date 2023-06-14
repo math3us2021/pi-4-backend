@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 const { findAll, create, getById, update, deletefood } = require("./food-controller");
+=======
+const { findAll, create, getById,deletefood,update } = require("./food-controller");
+>>>>>>> 022fc3e1748a5be3a129fd66fdf0e4ec85124d4f
 const schema = require("./food-schema");
 
 const plugin = {

@@ -14,8 +14,8 @@ const findByid = ( dateStart, dateEnd, petId) => {
     return weightMonthRepository.findById( dateStart, dateEnd, petId);
 }
 
-const deleteweightMonth = (id) => {
-    return weightMonthRepository.deleteweightMonth(id);
+const deleteWeightMonth = (id) => {
+    return weightMonthRepository.deleteWeightMonth(id);
 }
 
 const update = (id, weightMonth) => {
@@ -37,4 +37,4 @@ const calculateFoodConsumptionByMonth = async () => {
     return foodConsumptionByMonth;
 }
 
-module.exports = {create, findAll, findByid, deleteweightMonth, update, calculateFoodConsumptionByMonth};
+module.exports = {create, findAll, findByid, deleteWeightMonth, update, calculateFoodConsumptionByMonth};

@@ -9,7 +9,7 @@ const findAll = () => {
     return petRepository.findAll();
 }
 
-const findByid = (id) => {
+const findById = (id) => {
     return petRepository.findById(id);
 }
 
@@ -22,4 +22,4 @@ const update = (id, pet) => {
 }
 
 
-module.exports = {create, findAll, findByid, deletepet, update};
+module.exports = {create, findAll, findById, deletepet, update};
