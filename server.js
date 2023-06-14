@@ -1,18 +1,22 @@
 const Hapi = require("@hapi/hapi");
-const HapiCors = require('hapi-cors');
 const routes = require('./config/routes');
 const sequelize = require('./config/db');
 
 const server = Hapi.server({
     port:  process.env.PORT || 8080,
-    host: "localhost",
+    host: "0.0.0.0",
+    routes: {
+        cors: {
+            origin: ['*'],
+            credentials: true
+        }
+    }
 });
 
 const plugins = [
     {
-        plugin: routes, HapiCors, options: {
+        plugin: routes, options: {
             routesBaseDir: './api',
-            origins: ['*'] // Permitir todas as origens (restringir conforme necessário)
         }
     }
 ]

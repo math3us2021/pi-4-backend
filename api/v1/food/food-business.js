@@ -5,8 +5,8 @@ const create = async (food) => {
     return foodRepository.save(food);
 };
 
-const findAll = () => {
-    return foodRepository.findAll();
+const findAll = (petId) => {
+    return foodRepository.findAll(petId);
 }
 
 const findByid = (id) => {

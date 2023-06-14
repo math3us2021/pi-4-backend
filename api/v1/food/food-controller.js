@@ -22,8 +22,9 @@ const create = async (request, h) => {
 
 const findAll = async (request, h) => {
   try {
+   const petId = request.query.petId;
    
-    const result = toPayload(await foodBusiness.findAll());
+    const result = toPayload(await foodBusiness.findAll(petId));
   return h.response(result).code(200);
   } catch (error) {
     console.log(error);

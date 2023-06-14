@@ -7,8 +7,13 @@ const result = foodModel.create(food);
 return result;
 };
 
-const findAll = () => {
-   const result = foodModel.findAll();
+const findAll = (petId) => {
+  console.log("🚀 ~ file: food-repository.js:11 ~ findAll ~ petId:", petId)
+  let where = {};
+  if (petId) {
+    where = {petId: petId};
+  }
+   const result = foodModel.findAll({where: where});
     return result;
 }
 
