@@ -22,7 +22,7 @@ module.exports = {
         allowNull: false,
       },
       date: {
-        type: Sequelize.STRING,
+        type: Sequelize.DATE,
         allowNull: false,
       },
       age_per_month: {

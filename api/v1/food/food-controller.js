@@ -30,10 +30,10 @@ const findAll = async (request, h) => {
   }
 };
 
-const getById = (request, h) => {
+const getById = async (request, h) => {
   const id = request.params.id;
 
-  const food = foodBusiness.findByid(id);
+  const food = await foodBusiness.findByid(id);
 
   if (food) {
     return h.response(food).code(200);

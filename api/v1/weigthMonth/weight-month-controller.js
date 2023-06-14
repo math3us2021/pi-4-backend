@@ -38,10 +38,10 @@ const findAll = async (request, h) => {
 };
 
 
-const getById = (request, h) => {
+const getById = async (request, h) => {
   const id = request.params.id;
 
-  const weightMonth = weightMonthBusiness.findByid(id);
+  const weightMonth = await weightMonthBusiness.findByid(id);
 
   if (weightMonth) {
     return h.response(weightMonth).code(200);
@@ -50,7 +50,7 @@ const getById = (request, h) => {
 };
 const deleteweightMonth = (request, h) => {
   const id = request.params.id;
-  const deleted = weightMonthBusiness.deleteweightMonth(id);
+  const deleted = weightMonthBusiness.deleteWeightMonth(id);
 
   if (deleted) {
     return h.response("Deleted").code(200);

@@ -1,4 +1,4 @@
-const { findAll, create, getById } = require("./pet-controller");
+const { findAll, create, getById,update,deletepet } = require("./pet-controller");
 const schema = require("./pet-schema");
 
 const plugin = {

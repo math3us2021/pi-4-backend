@@ -1,5 +1,7 @@
 const Sequelize = require("sequelize");
 const db = require("../../../config/db");
+const petFeeder = require("../petFeeder/pet-feeder-models");
+const pet = require("../pet/pet-models");
 
 const food = db.define(
   "food",
@@ -46,3 +48,5 @@ const food = db.define(
 );
 
 module.exports = food;
+
+

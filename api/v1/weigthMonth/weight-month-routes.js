@@ -1,4 +1,4 @@
-const {findAll,create,getById} = require("./weight-month-controller");
+const {findAll,create,getById,update,deleteweightMonth} = require("./weight-month-controller");
 const schema = require("./weight-month-schema");
 
 const plugin = {

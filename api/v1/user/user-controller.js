@@ -32,10 +32,10 @@ const find = async  (request, h) => {
   }
 };
 
-const getById = (request, h) => {
+const getById = async (request, h) => {
   const id = request.params.id;
 
-  const user = userBusiness.findByid(id);
+  const user = await userBusiness.findByid(id);
 
   if (user) {
     return h.response(user).code(200);

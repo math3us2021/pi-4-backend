@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
 const db = require('../../../config/db');
+const food = require('../food/food-models');
 
 const petFeeder = db.define('pet-feeder', {
     id: {
@@ -32,3 +33,6 @@ const petFeeder = db.define('pet-feeder', {
 });
 
 module.exports = petFeeder;
+
+
+

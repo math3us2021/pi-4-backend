@@ -9,9 +9,9 @@ const create = async (request, h) => {
     const pet = {
       id: payload.id,
       name: payload.name,
-      type: payload.enumTypePet,
+      type: payload.type,
       breed: payload.breed,
-      gender: payload.enumGenderPet,
+      gender: payload.gender,
       birthDate: payload.birthDate,
       weigth: payload.weigth,
       
@@ -26,11 +26,11 @@ const create = async (request, h) => {
 
 const findAll = async (request, h) => {
   try {
-    // const options = {
-    //   pagins: request.query,
-    //   filter: request.query,
+    const options = {
+      pagins: request.query,
+      filter: request.query,
 
-    // }
+    }
     const result = toPayload(await petBusiness.findAll());
   return h.response(result).code(200);
   } catch (error) {
@@ -38,10 +38,10 @@ const findAll = async (request, h) => {
   }
 };
 
-const getById = (request, h) => {
+const getById = async (request, h) => {
   const id = request.params.id;
 
-  const pet = petBusiness.findByid(id);
+  const pet = await petBusiness.findById(id);
 
   if (pet) {
     return h.response(pet).code(200);

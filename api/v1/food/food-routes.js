@@ -1,4 +1,4 @@
-const { findAll, create, getById } = require("./food-controller");
+const { findAll, create, getById,deletefood,update } = require("./food-controller");
 const schema = require("./food-schema");
 
 const plugin = {
