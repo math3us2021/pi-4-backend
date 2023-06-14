@@ -24,7 +24,7 @@ const create = async (request, h) => {
 const find = async  (request, h) => {
   try{
     const result = await userBusiness.findAll();
-    console.log(Array.isArray(result));
+    // console.log(Array.isArray(result));
     return h.response(result).code(200);
     }catch(error){
         console.log(error);

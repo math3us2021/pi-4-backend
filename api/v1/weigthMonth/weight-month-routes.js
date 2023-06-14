@@ -1,4 +1,4 @@
-const {findAll,create,getById} = require("./weight-month-controller");
+const {findAll,create,getById, update, deleteweightMonth} = require("./weight-month-controller");
 const schema = require("./weight-month-schema");
 
 const plugin = {
@@ -14,10 +14,7 @@ const plugin = {
             {
                 method: "GET",
                 path: "/weight_month/{id}",
-                options: {
-                    validate: schema.getById,
-                    handler: getById
-                }
+                handler: getById
             },{
                 method: "POST",
                 path: "/weight_month",

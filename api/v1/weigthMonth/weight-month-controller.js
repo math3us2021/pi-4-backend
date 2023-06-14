@@ -38,10 +38,14 @@ const findAll = async (request, h) => {
 };
 
 
-const getById = (request, h) => {
-  const id = request.params.id;
+const getById = async (request, h) => {
+  const petId = request.params.id;
+  const dateStart = request.query.dateStart;
+  const dateEnd = request.query.dateEnd;
 
-  const weightMonth = weightMonthBusiness.findByid(id);
+  const weightMonth = await weightMonthBusiness.findByid(
+     dateStart, dateEnd, petId
+     );
 
   if (weightMonth) {
     return h.response(weightMonth).code(200);

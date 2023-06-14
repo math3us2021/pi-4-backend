@@ -1,4 +1,5 @@
 const WeightMonthModel = require('./weight-month-models');
+const { Op, or } = require('sequelize');
 
 const data = [];
 
@@ -13,9 +14,25 @@ const findAll = () => {
     return result;
 }
 
-const findById = (id) => {
+const findById = ( dateStart, dateEnd, petId) => {
+    const start = new Date(dateStart);
+    const end = new Date(dateEnd);
 
-    return data.find(c => c.id == id);
+    const result = WeightMonthModel.findAll(
+         {
+        where: {
+            petId: petId,
+            date: {
+                [Op.between]: [start, end]
+            },
+           
+        },
+         order: [
+                ['date', 'ASC']
+            ]
+    } 
+    );
+    return result;
 }
 
 const update = (id, weightMonth) => {

@@ -2,5 +2,7 @@
     "appService.zipIgnorePattern": [
         "node_modules{,/**}",
         ".vscode{,/**}"
-    ]
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/bcdc008b-2ade-4e07-9da6-cb5077b649fa/resourceGroups/pi4/providers/Microsoft.Web/sites/petcomilao",
+    "appService.deploySubpath": "."
 }

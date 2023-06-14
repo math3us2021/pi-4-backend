@@ -30,6 +30,7 @@ const findAll = async (request, h) => {
 
 const getById = (request, h) => {
   const id = request.params.id;
+  console.log("🚀 ~ file: pet-feeder-controller.js:33 ~ getById ~ id:", id)
 
   const petFeeder = petFeederBusiness.findByid(id);
 

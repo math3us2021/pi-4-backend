@@ -10,8 +10,8 @@ const findAll = () => {
     return weightMonthRepository.findAll();
 }
 
-const findByid = (id) => {
-    return weightMonthRepository.findById(id);
+const findByid = ( dateStart, dateEnd, petId) => {
+    return weightMonthRepository.findById( dateStart, dateEnd, petId);
 }
 
 const deleteweightMonth = (id) => {
@@ -32,7 +32,7 @@ const calculateFoodConsumptionByMonth = async () => {
     
     })
     foodConsumptionByMonth.forEach(element => {
-        console.log(element.toJSON());
+        // console.log(element.toJSON());
     })
     return foodConsumptionByMonth;
 }

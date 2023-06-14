@@ -38,16 +38,17 @@ const findAll = async (request, h) => {
   }
 };
 
-const getById = (request, h) => {
+const getById = async (request, h) => {
   const id = request.params.id;
 
-  const pet = petBusiness.findByid(id);
+   const pet = await petBusiness.findByid(id);
 
   if (pet) {
     return h.response(pet).code(200);
   }
   return h.response("Not found").code(404);
 };
+
 const deletepet = (request, h) => {
   const id = request.params.id;
   const deleted = petBusiness.deletepet(id);

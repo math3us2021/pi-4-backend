@@ -14,8 +14,8 @@ const findAll = () => {
 }
 
 const findById = (id) => {
-
-    return data.find(c => c.id == id);
+    const result = PetModel.findByPk(id);
+    return result;
 }
 
 const update = (id, pet) => {
