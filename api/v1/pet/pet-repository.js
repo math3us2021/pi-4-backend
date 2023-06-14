@@ -16,10 +16,7 @@ const findAll = () => {
 const findById = (id) => {
     const result = PetModel.findByPk(id);
     return result;
-<<<<<<< HEAD
-=======
    
->>>>>>> 022fc3e1748a5be3a129fd66fdf0e4ec85124d4f
 }
 
 const update = async (id, pet) => {

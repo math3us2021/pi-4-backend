@@ -14,7 +14,6 @@ const findAll = () => {
     return result;
 }
 
-<<<<<<< HEAD
 const findById = ( dateStart, dateEnd, petId) => {
     const start = new Date(dateStart);
     const end = new Date(dateEnd);
@@ -33,10 +32,6 @@ const findById = ( dateStart, dateEnd, petId) => {
             ]
     } 
     );
-=======
-const findById = (id) => {
-    const result = WeightMonthModel.findByPk(id);
->>>>>>> 022fc3e1748a5be3a129fd66fdf0e4ec85124d4f
     return result;
 }
 

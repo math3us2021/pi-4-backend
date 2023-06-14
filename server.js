@@ -8,7 +8,6 @@ const server = Hapi.server({
     host: "0.0.0.0",
 });
 
-
 const plugins = [
     {
         plugin: routes, HapiCors, options: {

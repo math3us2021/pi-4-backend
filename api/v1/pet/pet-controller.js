@@ -41,11 +41,7 @@ const findAll = async (request, h) => {
 const getById = async (request, h) => {
   const id = request.params.id;
 
-<<<<<<< HEAD
-   const pet = await petBusiness.findByid(id);
-=======
   const pet = await petBusiness.findById(id);
->>>>>>> 022fc3e1748a5be3a129fd66fdf0e4ec85124d4f
 
   if (pet) {
     return h.response(pet).code(200);
