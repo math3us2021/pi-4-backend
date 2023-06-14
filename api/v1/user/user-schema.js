@@ -8,7 +8,7 @@ const postUser = {
     email: Joi.string().email().required(),
     phone: Joi.string().min(10).max(11).required(),
     password: Joi.string().min(6).max(50).required(),
-    petId: Joi.string().min(1).max(36).required(),
+    // petId: Joi.string().min(1).max(36).required(),
   }).required(),
 };
 

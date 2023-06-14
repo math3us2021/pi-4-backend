@@ -7,16 +7,16 @@ const result = PetModel.create(pet);
 return result;
 };
 
-const findAll = () => {
-    console.log('entrei aqui');
-   const result = PetModel.findAll();
-    return result;
+
+const findAll = (type) => {
+  const options = type ? { where: { type } } : {};
+  const result = PetModel.findAll(options);
+  return result;
 }
 
 const findById = (id) => {
     const result = PetModel.findByPk(id);
     return result;
-   
 }
 
 const update = async (id, pet) => {

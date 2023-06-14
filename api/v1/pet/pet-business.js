@@ -5,8 +5,8 @@ const create = async (pet) => {
     return petRepository.save(pet);
 };
 
-const findAll = () => {
-    return petRepository.findAll();
+const findAll = (type) => {
+    return petRepository.findAll(type);
 }
 
 const findById = (id) => {

@@ -26,12 +26,12 @@ const create = async (request, h) => {
 
 const findAll = async (request, h) => {
   try {
+    const type = request.query.type;
     const options = {
       pagins: request.query,
       filter: request.query,
-
     }
-    const result = toPayload(await petBusiness.findAll());
+    const result = toPayload(await petBusiness.findAll(type));
   return h.response(result).code(200);
   } catch (error) {
     console.log(error);
