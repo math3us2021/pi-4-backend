@@ -4,7 +4,7 @@ const create = async (request, h) => {
   try {
     const payload = request.payload;
     const user = {
-      id: payload.id,
+      // id: payload.id,
       name: payload.name,
       cpf: payload.cpf,
       email: payload.email,

@@ -1,9 +1,17 @@
-const userModel = require('./user-models');
 
-const data = [];
+const userModel = require('./user-models');
+const uuid = require('uuid');
 
 const save = (user) => {
-const result = userModel.create(user);
+const result = userModel.create({
+  id: uuid.v4(),
+  name: user.name,
+  cpf: user.cpf,
+  phone: user.phone,
+  email: user.email,
+  password: user.password,
+  petId: user.petId,
+});
     return result;
 };
 

@@ -15,15 +15,12 @@ const plugin = {
         method: "GET",
         path: "/pets/{id}",
         handler: getById,
-        // options: {
-          // validate: schema.getById,
-        // },
       },
       {
         method: "POST",
         path: "/pets",
         options: {
-          validate: schema.create,
+          validate: schema.postPet,
           handler: create,
         },
       },

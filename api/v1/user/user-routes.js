@@ -22,7 +22,7 @@ const plugin = {
                 method: "POST",
                 path: "/users",
                 options: {
-                    validate: schema.create,
+                    validate: schema.postConsumer,
                     handler: create,
                 }
 

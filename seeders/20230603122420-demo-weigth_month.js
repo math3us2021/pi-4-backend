@@ -23,7 +23,8 @@ module.exports = {
 };
 
 function generateRandomWeight() {
-  return (Math.random() * (20 - 0) + 0).toFixed(2);
+  ///numero aleatorio entre 1500 a 3500 
+  return (Math.random() * (3500 - 1500) + 1500).toFixed(2);
 }
 
 function generateRandomWidth() {

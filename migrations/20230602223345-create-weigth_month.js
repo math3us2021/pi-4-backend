@@ -10,15 +10,15 @@ module.exports = {
         primaryKey: true,
       },
       weight: {
-        type: Sequelize.FLOAT,
+        type: Sequelize.INTEGER,
         allowNull: false,
       },
       width: {
-        type: Sequelize.FLOAT,
+        type: Sequelize.INTEGER,
         allowNull: false,
       },
       height: {
-        type: Sequelize.FLOAT,
+        type: Sequelize.INTEGER,
         allowNull: false,
       },
       date: {
@@ -30,7 +30,7 @@ module.exports = {
         allowNull: false,
       },
       quantityMonth: {
-        type: Sequelize.FLOAT,
+        type: Sequelize.INTEGER,
         allowNull: false,
       },
       

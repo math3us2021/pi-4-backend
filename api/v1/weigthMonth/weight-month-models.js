@@ -12,15 +12,15 @@ const WeightMonth = db.define(
       primaryKey: true,
     },
     weight: {
-      type: Sequelize.FLOAT,
+      type: Sequelize.INTEGER,
       allowNull: false,
     },
     width: {
-      type: Sequelize.FLOAT,
+      type: Sequelize.INTEGER,
       allowNull: false,
     },
     height: {
-      type: Sequelize.FLOAT,
+      type: Sequelize.INTEGER,
       allowNull: false,
     },
     date: {
@@ -32,7 +32,7 @@ const WeightMonth = db.define(
       allowNull: false,
     },
     quantityMonth: {
-      type: Sequelize.FLOAT,
+      type: Sequelize.INTEGER,
       allowNull: false,
     },
     petId: {

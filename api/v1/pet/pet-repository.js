@@ -1,9 +1,17 @@
 const PetModel = require('./pet-models');
+const uuid = require('uuid');
 
-const data = [];
 
 const save = async (pet) => {
-const result = PetModel.create(pet);
+const result = PetModel.create({
+  id: uuid.v4(),
+  name: pet.name,
+  type: pet.type,
+  breed: pet.breed,
+  gender: pet.gender,
+  birthDate: pet.birthDate,
+  weigth: pet.weigth,
+});
 return result;
 };
 

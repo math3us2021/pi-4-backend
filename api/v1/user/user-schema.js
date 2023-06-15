@@ -2,13 +2,13 @@ const Joi = require("joi");
 
 const postUser = {
   payload: Joi.object({
-    id: Joi.number().integer().required(),
+    // id: Joi.number().integer().required(),
     name: Joi.string().min(3).max(50).required(),
     cpf: Joi.string().min(11).max(11).required(),
     email: Joi.string().email().required(),
     phone: Joi.string().min(10).max(11).required(),
     password: Joi.string().min(6).max(50).required(),
-    // petId: Joi.string().min(1).max(36).required(),
+    petId: Joi.string().min(1).max(36).required(),
   }).required(),
 };
 

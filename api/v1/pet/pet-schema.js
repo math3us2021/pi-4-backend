@@ -2,7 +2,6 @@ const Joi = require("joi");
 
 const postPet = {
   payload: Joi.object({
-    id: Joi.number().integer().required(),
     name: Joi.string().min(3).max(50).required(),
     type: Joi.string().min(3).max(50).required(),
     breed: Joi.string().min(3).max(50).required(),
