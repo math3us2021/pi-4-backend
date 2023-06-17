@@ -7,7 +7,7 @@ const postPet = {
     breed: Joi.string().min(3).max(50).required(),
     gender: Joi.string().min(3).max(50).required(),
     birthDate: Joi.string().min(3).max(50).required(),
-    weigth: Joi.string().min(3).max(50).required(),
+    weigth: Joi.number().integer().required(),
 
   }).required(),
 };
