@@ -29,14 +29,6 @@ module.exports = {
         password: {
           type: Sequelize.STRING(12),
           allowNull: false,
-        },
-        petId: {
-          allowNull: false,
-          type: Sequelize.STRING(36),
-          references: {
-            model: 'pet',
-            key: 'id',
-          },
         }
       });
 

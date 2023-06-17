@@ -9,9 +9,7 @@ const create = async (request, h) => {
       cpf: payload.cpf,
       email: payload.email,
       phone: payload.phone,
-      password: payload.password,
-      petId: payload.petId,
-      
+      password: payload.password,      
     };
     const result = toPayload(await userBusiness.create(user));
     return h.response(result).code(201);
@@ -75,9 +73,7 @@ const toPayload = (userModel) => {
                 cpf: c.cpf,
                 email: c.email,
                 phone: c.phone,
-                password: c.password,
-                petId:c.petId,
-                
+                password: c.password,                
             });
         });
         return payload;
@@ -88,9 +84,7 @@ const toPayload = (userModel) => {
             cpf: userModel.cpf,
             email: userModel.email,
             phone: userModel.phone,
-            password: userModel.password,
-            petId:userModel.petId,
-           
+            password: userModel.password,           
         }
         return payload;
     }

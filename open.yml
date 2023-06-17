@@ -10,10 +10,6 @@ info:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
   version: 1.0.0
-
-servers:
-  - url: https://fatecfranca.edu.br
-
 tags:
   - name: pet
     description: Operations to handle products info
@@ -21,59 +17,68 @@ paths:
   /pets:
     get:
       tags:
-        - order
-      summary: List orders
+        - pet
+      summary: List pets
       parameters:
         - name: pet.name
           in: query
-          description: CPF of customer
+          description: Name of the pet
           required: false
           schema:
             type: string
-
       responses:
         "200":
-          description: Orders found
+          description: Pets found
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Pet"
+                type: array
+                items:
+                  $ref: "#/components/schemas/Pet"
     post:
-      description: "create a new pet"
-      parameters:
-        - name: pet
-          in: path
-          description: Pet object
-          required: true
-          schema:
-            $ref: "#/components/schemas/Pet"
+      tags:
+        - pet
+      summary: Create a new pet
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Pet"
       responses:
         "200":
           description: OK
+
   /pets/{id}:
     get:
       tags:
-        - order
-      summary: List orders
+        - pet
+      summary: Get pet by ID
       parameters:
-        - name: name_in
+        - name: id
           in: path
-          description: Id order
+          description: ID of the pet
           required: true
           schema:
             type: string
-
       responses:
         "200":
-          description: Orders found
+          description: Pet found
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/Pet"
-
     put:
-      description: ""
-      parameters: []
+      tags:
+        - pet
+      summary: Update pet by ID
+      parameters:
+        - name: id
+          in: path
+          description: ID of the pet
+          required: true
+          schema:
+            type: string
       responses:
         "200":
           description: OK
@@ -93,30 +98,11 @@ paths:
           description: Pet successfully deleted
         "404":
           description: Pet not found
-  /users/{id}/pets:
-    get:
-      tags:
-        - order
-      summary: List Orders Itens
-      parameters:
-        - name: id
-          in: path
-          description: ID of the order
-          required: true
-          schema:
-            type: string
-      responses:
-        "200":
-          description: Order Found
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/User"
-    
+
 
   /users:
     get:
-      summary: Retorna a lista de usuários cadastrados
+      summary: Retrieve the list of registered users
       operationId: getUsers
       tags:
         - Users
@@ -133,7 +119,7 @@ paths:
         - api_key: []
 
     post:
-      summary: Cria um novo usuário
+      summary: Create a new user
       operationId: createUser
       tags:
         - Users
@@ -150,30 +136,30 @@ paths:
         - api_key: []
 
   /users/{id}:
-   get:
-    summary: Retorna um usuário específico pelo ID
-    operationId: getUserById
-    tags:
-      - Users
-    parameters:
-      - in: path
-        name: id
-        required: true
-        description: ID do usuário
-        schema:
-          type: string
-    responses:
-      '200':
-        description: OK
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/User'
-    security:
-      - api_key: []
+    get:
+      summary: Get a specific user by ID
+      operationId: getUserById
+      tags:
+        - Users
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: ID of the user
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      security:
+        - api_key: []
 
-   put:
-      summary: Atualiza um usuário existente pelo ID
+    put:
+      summary: Update an existing user by ID
       operationId: updateUserById
       tags:
         - Users
@@ -181,7 +167,7 @@ paths:
         - in: path
           name: id
           required: true
-          description: ID do usuário
+          description: ID of the user
           schema:
             type: string
       requestBody:
@@ -195,8 +181,9 @@ paths:
           description: No Content
       security:
         - api_key: []
-   delete:
-      summary: Remove um usuário existente pelo ID
+
+    delete:
+      summary: Remove an existing user by ID
       operationId: deleteUserById
       tags:
         - Users
@@ -204,7 +191,7 @@ paths:
         - in: path
           name: id
           required: true
-          description: ID do usuário
+          description: ID of the user
           schema:
             type: string
       responses:
@@ -212,76 +199,269 @@ paths:
           description: No Content
       security:
         - api_key: []
+
+  /food:
+    get:
+      tags:
+        - food
+      summary: List food items
+      responses:
+        "200":
+          description: Food items found
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Food"
+    post:
+      tags:
+        - food
+      summary: Create a new food item
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Food"
+      responses:
+        "200":
+          description: OK
+  /food/{id}:
+    delete:
+      tags:
+        - food
+      summary: Delete a food item
+      parameters:
+        - name: id
+          in: path
+          description: ID of the food item to be deleted
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: Food item successfully deleted
+        "404":
+          description: Food item not found
+    put:
+      tags:
+        - food
+      summary: Update food item by ID
+      parameters:
+        - name: id
+          in: path
+          description: ID of the food item
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+  /petFeeder:
+    get:
+      tags:
+        - petFeeder
+      summary: List pet feeders
+      responses:
+        "200":
+          description: Pet feeders found
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/PetFeeder"
+    post:
+      tags:
+        - petFeeder
+      summary: Create a new pet feeder
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PetFeeder"
+      responses:
+        "200":
+          description: OK
+  /petFeeder/{id}:
+    delete:
+      tags:
+        - petFeeder
+      summary: Delete a pet feeder
+      parameters:
+        - name: id
+          in: path
+          description: ID of the pet feeder to be deleted
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: Pet feeder successfully deleted
+        "404":
+          description: Pet feeder not found
+    put:
+      tags:
+        - petFeeder
+      summary: Update pet feeder by ID
+      parameters:
+        - name: id
+          in: path
+          description: ID of the pet feeder
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+  /weight_month:
+    get:
+      tags:
+        - weight_month
+      summary: List weight records per month
+      responses:
+        "200":
+          description: Weight records found
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/WeightMonth"
+    post:
+      tags:
+        - weight_month
+      summary: Create a new weight record per month
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WeightMonth"
+      responses:
+        "200":
+          description: OK
+  /weight_month/{id}:
+    delete:
+      tags:
+        - weight_month
+      summary: Delete a weight record per month
+      parameters:
+        - name: id
+          in: path
+          description: ID of the weight record to be deleted
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: Weight record successfully deleted
+        "404":
+          description: Weight record not found
+    put:
+      tags:
+        - weight_month
+      summary: Update weight record by ID
+      parameters:
+        - name: id
+          in: path
+          description: ID of the weight record
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
 components:
   schemas:
-
     Pet:
       type: object
       properties:
         id:
-          format: string
-          example: sdfsdf-sdfsf-sdf
+          type: string
+          format: uuid
         name:
-          format: string
-          example: mary
-        species:
-          format: string
-          example: gato
+          type: string
+        type:
+          type: string
         breed:
-          format: string
-          example: persa
-        age:
-          format: number
-          example: 2
+          type: string
         gender:
-          format: string
-          example: femea
+          type: string
+        birthdate:
+          type: string
+          format: date
         weight:
-          format: decimal
-          example: 10.5
+          type: number
+
     User:
       type: object
       properties:
         id:
-          format: string
-          example: sdfsdf-sdfsf-sdf
+          type: string
+          format: uuid
         name:
-          format: string
-          example: mary
+          type: string
         cpf:
-          format: string
-          example: 403.433.948-98
-        email:
-          format: string
-          example: matheusbf.mf@gmail.com
+          type: string
         phone:
-          format: string
-          example: 99.99999-9999
+          type: string
+        email:
+          type: string
         password:
-          format: string
-          example: 123456
-        address:
-          type: object
-          properties:
-            street:
-              format: string
-              example: rua 1
-            number:
-              format: string
-              example: 123
-            complement:
-              format: string
-              example: casa
-            neighborhood:
-              format: string
-              example: centro
-            city:
-              format: string
-              example: franca
-            state:
-              format: string
-              example: sp
-            zipCode:
-              format: string
-              example: 14400-000
+          type: string
+
+    Food:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        petId:
+          type: string
+        petFeederId:
+          type: string
+        dateAliment:
+          type: string
+          format: date
+        quantity:
+          type: number
+        success:
+          type: boolean
+    PetFeeder:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        hourStart:
+          type: string
+          format: time
+        quantityGrams:
+          type: number
+        petId:
+          type: string
+    WeightMonth:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        weight:
+          type: number
+        width:
+          type: number
+        height:
+          type: number
+        date:
+          type: string
+          format: date
+        age_per_month:
+          type: string
+        quantityMonth:
+          type: number
+        petId:
+          type: string
           

@@ -10,7 +10,6 @@ const result = userModel.create({
   phone: user.phone,
   email: user.email,
   password: user.password,
-  petId: user.petId,
 });
     return result;
 };
